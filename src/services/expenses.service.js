@@ -6,7 +6,7 @@ const start = () => {
 
 const getAll = (params) => {
   const { userId, categories, from, to } = params;
-  let filteredExpenses = [...expenses];
+  let filteredExpenses = expenses;
 
   if (userId) {
     filteredExpenses = filteredExpenses.filter(
@@ -57,9 +57,7 @@ const deleteById = (id) => {
 const updateById = (keys) => {
   const expense = getById(keys.id);
 
-  Object.assign(expense, {
-    ...keys,
-  });
+  Object.assign(expense, keys);
 
   return expense;
 };
